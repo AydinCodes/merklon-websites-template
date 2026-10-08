@@ -1,0 +1,30 @@
+{
+  "name": "merklon-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "new-site": "bun scripts/new-site.ts",
+    "ui:link": "cd ../merklon-ui && bun link && cd - && bun link @merklon/ui",
+    "ui:update": "bun update @merklon/ui",
+    "upgrade": "next upgrade && bun update",
+    "template:update": "git fetch template && git merge template/main --no-edit"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/outfit": "^5.3.0",
+    "@merklon/ui": "github:AydinCodes/merklon-ui",
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "^5.9.3"
+  }
+}

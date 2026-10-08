@@ -3,8 +3,8 @@
  *
  *   bun run new-site --name "Exif" --tagline "See what your photos reveal about you." --url https://exif.merklon.com
  *
- * Fills in src/site.ts, package.json and README.md. Git remotes are a separate
- * step (see AGENTS.md), because they need the new GitHub repo to exist.
+ * Fills in src/site.ts, package.json and README.md. Creating the private
+ * GitHub repo (merklon-<slug>) is the next step in AGENTS.md.
  */
 import { readFile, writeFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
@@ -31,6 +31,7 @@ const slug =
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+const repo = `merklon-${slug}`;
 const cleanUrl = url.replace(/\/+$/, "");
 const quote = (value: string) => JSON.stringify(value);
 
@@ -45,7 +46,7 @@ await writeFile(sitePath, siteFile);
 
 // package.json
 const pkg = JSON.parse(await readFile("package.json", "utf8"));
-pkg.name = slug;
+pkg.name = repo;
 pkg.version = "0.1.0";
 await writeFile("package.json", JSON.stringify(pkg, null, 2) + "\n");
 
@@ -68,9 +69,9 @@ See AGENTS.md for updating packages, Next.js, Merklon UI and the template.
 `
 );
 
-console.log(`Named the site "${name}" (${slug}).
+console.log(`Named the site "${name}". Repo: ${repo}
 
 Next:
-  1. Create an empty GitHub repo named "${slug}".
-  2. git remote add origin https://github.com/AydinCodes/${slug}.git
-  3. git add -A && git commit -m "Start ${name}" && git push -u origin main`);
+  git remote rename origin template
+  git add -A && git commit -m "Start ${name}"
+  gh repo create AydinCodes/${repo} --private --source . --remote origin --push`);

@@ -32,19 +32,19 @@ If `src/site.ts` still says `"Merklon Site"`, this is an unconfigured copy:
 3. `bun run new-site --name "…" --tagline "…" --url https://…`
 4. `bun run upgrade` to get the latest Next.js, packages and Merklon UI, then
    `bun run build`. It must pass.
-5. Git. If the folder was cloned from the template, `origin` points at the
+5. Git. Every site gets its own **private** repo named **`merklon-<slug>`**
+   (e.g. `merklon-exif`), created with the GitHub CLI, which is installed and
+   logged in. If the folder was cloned from the template, `origin` points at the
    template:
    ```bash
-   git remote rename origin template      # keep it, for template:update
+   git remote rename origin template        # keep it, for template:update
+   git add -A && git commit -m "Start <Name>"
+   gh repo create AydinCodes/merklon-<slug> --private --source . --remote origin --push
    ```
-   If it came from a zip instead (no `.git`), run `git init -b main` and
+   If it came from a zip instead (no `.git`), first run `git init -b main`,
    `git remote add template https://github.com/AydinCodes/merklon-websites-template.git`,
-   then `git fetch template` and `git merge template/main --allow-unrelated-histories`
-   once.
-   Then create the site's own GitHub repo (`gh repo create AydinCodes/<slug> --private --source . --push`
-   if the GitHub CLI is installed; otherwise ask the user to create an empty
-   repo and run `git remote add origin https://github.com/AydinCodes/<slug>.git`),
-   commit and push to `origin main`.
+   `git fetch template`, then `git merge template/main --allow-unrelated-histories`,
+   then the commit and `gh repo create` above.
 6. Replace the placeholder `<main>` in `src/app/page.tsx` with the site's idea.
    Keep `<MerklonFooter />`.
 

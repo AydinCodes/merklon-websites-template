@@ -13,14 +13,19 @@ command. A zip has no git history, so it can't.
 
 ```bash
 cd ~/Documents/Projects/merklon
-git clone https://github.com/AydinCodes/merklon-websites-template.git my-new-site
-cd my-new-site
+git clone https://github.com/AydinCodes/merklon-websites-template.git merklon-exif
+cd merklon-exif
 claude
 ```
 
 Then tell Claude: **"Set this up as a new site."** It reads `AGENTS.md`, asks
 for the name, tagline and URL, renames everything, upgrades Next.js and the
-packages, re-points git at the site's own repo, and builds.
+packages, builds, and creates the site's own **private** repo,
+`AydinCodes/merklon-<name>`, with the GitHub CLI.
+
+This template and [merklon-ui](https://github.com/AydinCodes/merklon-ui) are
+public, so sites can install and clone them without tokens. Every site repo is
+private.
 
 ## Keep sites up to date
 

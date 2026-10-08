@@ -81,7 +81,7 @@
 
     "@img/sharp-win32-x64": ["@img/sharp-win32-x64@0.35.5", "", { "os": "win32", "cpu": "x64" }, "sha512-x76eH0vEiHlcMQu8Y8IenntaACtddpT6W0wmXtWrnKcnKI7ME5DdgqhAD6SEWOEl1v2zDvkZDhFA9KnURwpfqg=="],
 
-    "@merklon/ui": ["@merklon/ui@github:AydinCodes/merklon-ui#08c875a", { "peerDependencies": { "react": ">=19", "react-dom": ">=19" } }, "AydinCodes-merklon-ui-08c875a", "sha512-GPp6ymtzbm7IYi/z7sjAdFXMV2mhKuo1cLHnJmf5989Is6cEJU031Ru8O1OV+8PuDUGBYfeqTubp0gfLR/6Lig=="],
+    "@merklon/ui": ["@merklon/ui@github:AydinCodes/merklon-ui#dd5df19", { "peerDependencies": { "react": ">=19", "react-dom": ">=19" } }, "AydinCodes-merklon-ui-dd5df19", "sha512-YBsDQH/s3yuS4utMDm5ud+pbMjTcRnpdKSx/48o28f/iIgpYXUUXKxwrADY8nBG+rXUT5R9WLeCcjbORwCeTHA=="],
 
     "@next/env": ["@next/env@16.3.5", "", {}, "sha512-NWEXVDMqoEo0ktmU6u0sE2Vg0LOcsD7NnOTJNo3/fEaTfsg+F1bMIxuDmQbda4e3yTIQwVdUREF2yIuMOusKtg=="],
 

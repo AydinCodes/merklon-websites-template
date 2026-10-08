@@ -2,7 +2,8 @@
 /node_modules
 
 # next.js
-/.next/
+# any depth: a linked @merklon/ui can make dev write a nested .next
+.next/
 /out/
 next-env.d.ts
 

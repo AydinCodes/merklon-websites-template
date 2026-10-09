@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/outfit/wght.css";
 import "@fontsource-variable/inter/wght.css";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeScript, Toaster } from "@merklon/ui";
 import { site } from "@/site";
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <Toaster />
       </body>
+      <GoogleAnalytics gaId="G-RT0HTTHFZZ" />
     </html>
   );
 }

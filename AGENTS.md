@@ -70,6 +70,28 @@ If `src/site.ts` still says `"Merklon Site"`, this is an unconfigured copy:
   `bun run template:update` in this site and the others.
 - **Never push this site's own work to the `template` remote.**
 
+## Phones: nothing in the page is as tall as the screen
+
+Some phone browsers (Brave on iPhone, for one) resize the whole page while
+their toolbar slides in and out as you scroll. Every screen-height measure
+follows: `vh`, `svh`, `dvh`, `lvh` and `window.innerHeight`. Anything in the
+page sized from the screen's height grows and shrinks with it, and
+everything below it jumps up and down.
+
+- **Up to 768px wide, nothing in the page flow takes its height or
+  min-height from the screen.** It is as tall as its content. `.page` in
+  `src/app/page.css` already does this; keep it, and do the same for any
+  full-screen hero or section you add.
+- Layers above the page (`position: fixed`, dialogs, a full-screen viewer)
+  may fill the screen: they don't push anything.
+- For page content, this overrides "Use `100dvh`, not `100vh`" in
+  PHILOSOPHY.md.
+- Don't swap in another unit or trick. `svh`, `100vh`,
+  `-webkit-fill-available`, making the body scroll instead of the page, and
+  a height measured once in JavaScript were all tried on merklon-thumbnails
+  (October 2026); the page still jumped in Brave, because the page itself
+  changes size.
+
 ## Before shipping
 
 Run the checklist at the end of PHILOSOPHY.md: phone and desktop, light and

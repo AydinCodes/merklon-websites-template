@@ -4,6 +4,15 @@
   min-height: 100dvh;
 }
 
+/* Phones: as tall as the content. Some phone browsers resize the page as
+   their toolbar comes and goes, and a screen-tall page would jump with it
+   (AGENTS.md, "Phones"). */
+@media (max-width: 768px) {
+  .page {
+    min-height: 0;
+  }
+}
+
 .page-main {
   flex: 1;
   display: flex;
